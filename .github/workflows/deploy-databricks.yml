@@ -1,0 +1,55 @@
+name: Deploy Databricks notebooks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'databricks/notebooks/**'
+      - 'tools/validate_repo.py'
+      - '.github/workflows/deploy-databricks.yml'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target GitHub environment
+        type: choice
+        options: [dev, prod]
+        default: dev
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databricks-${{ inputs.environment || 'dev' }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Protect production through GitHub environment rules before using it.
+    environment: ${{ inputs.environment || 'dev' }}
+    runs-on: ubuntu-latest
+    env:
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      DATABRICKS_AUTH_TYPE: pat
+      DATABRICKS_WORKSPACE_ROOT: ${{ vars.DATABRICKS_WORKSPACE_ROOT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate repository before deployment
+        run: python tools/validate_repo.py
+      - name: Check required environment configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          : "${DATABRICKS_HOST:?Set GitHub environment variable DATABRICKS_HOST}"
+          : "${DATABRICKS_TOKEN:?Set GitHub environment secret DATABRICKS_TOKEN}"
+          : "${DATABRICKS_WORKSPACE_ROOT:?Set GitHub environment variable DATABRICKS_WORKSPACE_ROOT}"
+          [[ "$DATABRICKS_WORKSPACE_ROOT" == /* ]]
+      - uses: databricks/setup-cli@main
+      - name: Import notebooks into the workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          databricks workspace import-dir databricks/notebooks "$DATABRICKS_WORKSPACE_ROOT" --overwrite

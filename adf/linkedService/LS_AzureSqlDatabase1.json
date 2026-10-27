@@ -1,0 +1,23 @@
+{
+  "name": "LS_AzureSqlDatabase1",
+  "properties": {
+    "annotations": [],
+    "type": "AzureSqlDatabase",
+    "typeProperties": {
+      "server": "__AZURE_SQL_SERVER__",
+      "database": "__AZURE_SQL_DATABASE__",
+      "encrypt": "mandatory",
+      "trustServerCertificate": false,
+      "authenticationType": "SQL",
+      "userName": "__AZURE_SQL_USERNAME__",
+      "password": {
+        "type": "AzureKeyVaultSecret",
+        "store": {
+          "referenceName": "LS_AzureKeyVault1",
+          "type": "LinkedServiceReference"
+        },
+        "secretName": "medata-db-passworld"
+      }
+    }
+  }
+}

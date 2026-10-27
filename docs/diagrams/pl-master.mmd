@@ -1,0 +1,4 @@
+flowchart TD
+  P["Source to Silver Postgres"] -->|Succeeded| G["Silver to Gold"]
+  C["Source to Silver ADLS CSV"] -->|Succeeded| G
+  G -->|Succeeded| E["Send_Email"]

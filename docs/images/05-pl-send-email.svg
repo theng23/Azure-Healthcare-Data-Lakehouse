@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1280" viewBox="0 0 1600 1280">
+<rect width="100%" height="100%" fill="white"/>
+<text x="64" y="84" text-anchor="start" dominant-baseline="auto" font-family="DejaVu Sans,Arial,sans-serif" font-size="40" font-weight="700" fill="#162D40">PL_SEND_EMAIL</text>
+<text x="64" y="132" text-anchor="start" dominant-baseline="auto" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" font-weight="400" fill="#516172">Parameter: adf_run_id  |  Audit summary and runtime Key Vault secret lookup</text>
+<rect x="70" y="210" width="380" height="100" rx="15" fill="#EAF3FB" stroke="#236DA8" stroke-width="3"/>
+<text x="260.0" y="243.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="400" fill="#162D40">Read All Tables Status</text>
+<text x="260.0" y="276.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="400" fill="#162D40">Audit rows for this run</text>
+<rect x="490" y="210" width="380" height="100" rx="15" fill="#EAF3FB" stroke="#236DA8" stroke-width="3"/>
+<text x="680.0" y="260.0" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="400" fill="#162D40">Check overall failed count</text>
+<rect x="910" y="210" width="290" height="100" rx="15" fill="#EAF3FB" stroke="#236DA8" stroke-width="3"/>
+<text x="1055.0" y="243.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="400" fill="#162D40">Prepare Email</text>
+<text x="1055.0" y="276.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="400" fill="#162D40">Body Header</text>
+<rect x="1240" y="210" width="290" height="100" rx="15" fill="#EAF3FB" stroke="#236DA8" stroke-width="3"/>
+<text x="1385.0" y="243.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="400" fill="#162D40">Prepare Email</text>
+<text x="1385.0" y="276.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="400" fill="#162D40">Body Footer</text>
+<rect x="490" y="420" width="380" height="95" rx="15" fill="#EAF3FB" stroke="#236DA8" stroke-width="3"/>
+<text x="680.0" y="467.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="400" fill="#162D40">Prepare Email Subject</text>
+<rect x="500" y="650" width="600" height="95" rx="15" fill="#EAF3FB" stroke="#236DA8" stroke-width="3"/>
+<text x="800.0" y="697.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="25" font-weight="400" fill="#162D40">Prepare logic app body</text>
+<rect x="500" y="850" width="600" height="105" rx="15" fill="#F0EFF8" stroke="#63577F" stroke-width="3"/>
+<text x="800.0" y="885.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" font-weight="400" fill="#162D40">Get Logic App URL</text>
+<text x="800.0" y="919.5" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="24" font-weight="400" fill="#162D40">Key Vault GET using ADF identity</text>
+<rect x="500" y="1060" width="600" height="95" rx="15" fill="#E6F5F4" stroke="#087F80" stroke-width="3"/>
+<text x="800.0" y="1090.0" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="25" font-weight="400" fill="#162D40">Send Email</text>
+<text x="800.0" y="1125.0" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="25" font-weight="400" fill="#162D40">HTTP POST to Logic Apps</text>
+<polyline points="680.0,310 680.0,365.0 680.0,365.0 680.0,420" fill="none" stroke="#718499" stroke-width="4"/>
+<polygon points="680.0,420 673.0405514542203,405.5928463623572 686.9594485457797,405.5928463623572" fill="#718499"/>
+<polyline points="260.0,310 260.0,590 800,590 800,650" fill="none" stroke="#718499" stroke-width="4"/>
+<polygon points="800,650 793.0405514542203,635.5928463623571 806.9594485457797,635.5928463623571" fill="#718499"/>
+<polyline points="680.0,515 680.0,590 800,590 800,650" fill="none" stroke="#718499" stroke-width="4"/>
+<polygon points="800,650 793.0405514542203,635.5928463623571 806.9594485457797,635.5928463623571" fill="#718499"/>
+<polyline points="1055.0,310 1055.0,590 800,590 800,650" fill="none" stroke="#718499" stroke-width="4"/>
+<polygon points="800,650 793.0405514542203,635.5928463623571 806.9594485457797,635.5928463623571" fill="#718499"/>
+<polyline points="1385.0,310 1385.0,590 800,590 800,650" fill="none" stroke="#718499" stroke-width="4"/>
+<polygon points="800,650 793.0405514542203,635.5928463623571 806.9594485457797,635.5928463623571" fill="#718499"/>
+<polyline points="800.0,745 800.0,797.5 800.0,797.5 800.0,850" fill="none" stroke="#718499" stroke-width="4"/>
+<polygon points="800.0,850 793.0405514542203,835.5928463623571 806.9594485457797,835.5928463623571" fill="#718499"/>
+<polyline points="800.0,955 800.0,1007.5 800.0,1007.5 800.0,1060" fill="none" stroke="#718499" stroke-width="4"/>
+<polygon points="800.0,1060 793.0405514542203,1045.5928463623572 806.9594485457797,1045.5928463623572" fill="#718499"/>
+<text x="64" y="1213" text-anchor="start" dominant-baseline="auto" font-family="DejaVu Sans,Arial,sans-serif" font-size="23" font-weight="400" fill="#516172">The master invokes this pipeline only after Gold succeeds.</text>
+<text x="64" y="1252" text-anchor="start" dominant-baseline="auto" font-family="DejaVu Sans,Arial,sans-serif" font-size="20" font-weight="400" fill="#6A7785">Logical diagram from repository JSON  |  Not an Azure UI screenshot</text>
+</svg>

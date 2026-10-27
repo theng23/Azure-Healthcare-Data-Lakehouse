@@ -1,0 +1,15 @@
+-- Run in a Unity Catalog enabled Databricks workspace.
+-- First create an Azure storage credential and external location that authorize
+-- abfss://landing@<storage-account>.dfs.core.windows.net/ in your environment.
+-- This file does not create the Azure resources or grant storage permissions.
+CREATE CATALOG IF NOT EXISTS adb_healthy;
+CREATE SCHEMA IF NOT EXISTS adb_healthy.landing;
+CREATE SCHEMA IF NOT EXISTS adb_healthy.bronze;
+CREATE SCHEMA IF NOT EXISTS adb_healthy.silver;
+CREATE SCHEMA IF NOT EXISTS adb_healthy.gold;
+
+-- Keep this spelling while using the supplied notebooks.
+CREATE EXTERNAL VOLUME IF NOT EXISTS adb_healthy.landing.landing_volumne
+LOCATION 'abfss://landing@<storage-account>.dfs.core.windows.net/';
+
+-- Next run setup/Calendar_Dimension_Build in the Databricks workspace.

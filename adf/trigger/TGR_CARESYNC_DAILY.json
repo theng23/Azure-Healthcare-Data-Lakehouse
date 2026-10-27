@@ -1,0 +1,25 @@
+{
+  "name": "TGR_CARESYNC_DAILY",
+  "properties": {
+    "description": "CareSync schedule every 8 hours. Enable after validating the environment.",
+    "annotations": [],
+    "runtimeState": "Stopped",
+    "pipelines": [
+      {
+        "pipelineReference": {
+          "referenceName": "PL_MASTER",
+          "type": "PipelineReference"
+        }
+      }
+    ],
+    "type": "ScheduleTrigger",
+    "typeProperties": {
+      "recurrence": {
+        "frequency": "Hour",
+        "interval": 8,
+        "startTime": "2026-10-27T16:30:00",
+        "timeZone": "SE Asia Standard Time"
+      }
+    }
+  }
+}

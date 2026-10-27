@@ -1,0 +1,8 @@
+flowchart TD
+  L["Read Source Tables List"] --> A["Insert In Progress Status"]
+  subgraph F["Parallel ForEach"]
+    A --> N["Run Gold notebook"]
+    N -->|Succeeded| S["Update Success Status"]
+    N -->|Failed| U["Update Failed Status"]
+    N -->|Failed| X["Fail activity"]
+  end

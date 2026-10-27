@@ -1,0 +1,7 @@
+flowchart TD
+  L["Read Source Tables List"] --> A["Insert In Progress Status"]
+  subgraph F["Parallel ForEach"]
+    A --> I["Ingest from Source to Silver"]
+    I -->|Failed| U["Update Failed Status"]
+    I -->|Failed| X["Update pipeline as failed"]
+  end

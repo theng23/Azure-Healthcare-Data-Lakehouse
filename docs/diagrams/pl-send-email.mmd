@@ -1,0 +1,8 @@
+flowchart TD
+  C["Check overall failed count"] --> S["Prepare Email Subject"]
+  S --> B["Prepare logic app body"]
+  A["Read All Tables Status"] --> B
+  H["Prepare Email Body Header"] --> B
+  F["Prepare Email Body Footer"] --> B
+  B --> K["Get Logic App URL from Key Vault"]
+  K --> E["Send Email HTTP POST"]

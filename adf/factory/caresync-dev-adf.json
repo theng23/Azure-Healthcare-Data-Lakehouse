@@ -1,0 +1,28 @@
+{
+  "name": "caresync-dev-adf",
+  "properties": {
+    "globalParameters": {
+      "env": {
+        "type": "string",
+        "value": "DEV"
+      },
+      "email_receipent": {
+        "type": "string",
+        "value": "__EMAIL_RECIPIENT__"
+      },
+      "databricks_notebook_root": {
+        "type": "string",
+        "value": "/Shared/caresync/databricks"
+      },
+      "key_vault_url": {
+        "type": "string",
+        "value": "__KEY_VAULT_URL__"
+      },
+      "logic_app_secret_name": {
+        "type": "string",
+        "value": "logic-app-callback-url"
+      }
+    }
+  },
+  "location": "eastus"
+}

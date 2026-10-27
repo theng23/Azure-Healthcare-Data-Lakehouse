@@ -1,0 +1,14 @@
+flowchart TD
+  R["Read Table Details"] --> L{"Check Load Type"}
+  T["Set Start Time"] --> L
+  L -->|Non FULL| W["Read and store watermark"]
+  W --> S{"Check Source System"}
+  L -->|FULL| S
+  S -->|neon_postgres| P["Copy PostgreSQL to Parquet"]
+  S -->|adls_csv| C["Copy CSV files as binary"]
+  P --> B["Landing to Bronze"]
+  C --> B
+  B --> V["Bronze to Silver"]
+  V --> A["Update Success Status"]
+  V --> U{"Check Load Type"}
+  U -->|Non FULL| M["Update watermark"]

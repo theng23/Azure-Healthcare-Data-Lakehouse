@@ -1,0 +1,172 @@
+[
+  {
+    "repository": "health_project_repo",
+    "path": "DNC_MAINsql",
+    "sha256": "708bc1dbe5382c9795d63c640dacdcfaa4b2896b0377d4cda1d2e8866109469d"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "MAIN_SCRIPT_TRACKING_14_DAYsql",
+    "sha256": "bebe8f2b03efa7e2c1bd0f441074c6f31270e2882684987acb2ba7a1f04d6b9f"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "README.MD",
+    "sha256": "b45ab1d0839d3e69c7a86e918941c930ca9a8dc1bbd6d75f12d7bfd3c42d2c01"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "dataset/AzureSqlTable1.json",
+    "sha256": "8fc0981ef262873637d18fb373bcce85de97a912424e365430475f6f3995e30b"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "dataset/DS_ADLS_Parquet1.json",
+    "sha256": "90ea195747e5794d8aaaa2c7c71927086349d60dcd8334e133987815d9c45606"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "dataset/DS_CSV_Binary.json",
+    "sha256": "16a26b8562320b788b34cdb98e7e2c2f7edbe7a0c9405e3f6e9ebc5a0d45b758"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "dataset/DS_PostgreSqlTable1.json",
+    "sha256": "4f90d7597110244611ca73a7054a0078ecb54b8937017cfc3b6b288e5f5e059e"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "factory/theng-health-project.json",
+    "sha256": "50bdf316e1103f93a0cb80e77f2adb1cf906e084b310b95dd112ee9043695687"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "linkedService/AzureDatabricks1.json",
+    "sha256": "fee8933503e4b1406d5eb18c69a5f548024bb219cbe0642029dc417900df52ee"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "linkedService/LS_ADLS.json",
+    "sha256": "b6f437b96bc3a1e0fb938bcba658d0b9ab3b24bad3ec22c9d8c4bb8a3c7ffaa5"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "linkedService/LS_AzureKeyVault1.json",
+    "sha256": "3e47b1fa5b589f7be546ae7fbe2cdc81cd7f19c3d67e4fc944cbd5adac53e1f4"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "linkedService/LS_AzureSqlDatabase1.json",
+    "sha256": "111a2f910d6c176b203159542c104a9be541a435bc9def15c9485a155473e3c8"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "linkedService/LS_PostgreSql1.json",
+    "sha256": "7eb71d9665e329ebac1b6dae0322e84f4bc59bc937e6eff4eb33c9c3007afe8d"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "pipeline/PL_MASTER.json",
+    "sha256": "41aa332b89c123a88c4f7a0e85f882a66f181b9683a81537110869c250a95d0e"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "pipeline/PL_SEND_EMAIL.json",
+    "sha256": "ad906e2b4e99900a27fda8f816bfc56826348d03e98adda00a17dbd6ea91b9f0"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "pipeline/PL_SILVER_TO_GOLD.json",
+    "sha256": "de49ab9a377c115e8190ade1f28cf83709bbf0110f3529b8460d29eb0cd9baf5"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "pipeline/PL_SOURCE_TO_SILVER_INNER.json",
+    "sha256": "8cb21618e79bd39243e511ae3c06f9af109a16bd1ec16296816f77532df6f6cf"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "pipeline/PL_SOURCE_TO_SILVER_MAIN.json",
+    "sha256": "01d61b8984f432ae1c9be6bf27aa298e5db4f6e6ab7786936623ed84831c71a2"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "pipeline/test.json",
+    "sha256": "80c68dd6c479bb5e921d41d55f980e591c68bdd3163a26e001319a000a08b3ed"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "publish_config.json",
+    "sha256": "98b410a443a9b268195b0a0a4050a82b417cec4dbd4a9bb1bb78669d16465d28"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "qc07_follow_tls_14_days.sql",
+    "sha256": "00832534aa212033d95eb2c04730cd87b1b3a6387f794cd489d2e5da9c436175"
+  },
+  {
+    "repository": "health_project_repo",
+    "path": "trigger/TGR_CARESYNC_DAILY.json",
+    "sha256": "7cd8b39d988fc3412fec8db850b489ac8399a55cf73523e9697d0ae79141f94a"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "Bronze_to_Silver.ipynb",
+    "sha256": "6b314b89aff251a24ac35550b229913fc9aa0b91edd73d5acbb0d46fbf863a33"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "Calendar Dimension Build.ipynb",
+    "sha256": "04041857e353f601b345a7c81a838c2b3919827160b998ebe8064ec27da8d9a4"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "Gold/NB_hospital_daily_summary.ipynb",
+    "sha256": "d814104d5a2fcef68c944be314a041d1aa70bc3f46a5049aa5057321e63836b3"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "Gold/NB_lab_test_trends.ipynb",
+    "sha256": "cb0ddafe7106e62345196e9958f0a236c924e4dde25bb994f9092c011d9285b7"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "Gold/NB_patient_360.ipynb",
+    "sha256": "871c00e21c819e07e541772ebe2dc1492253c849dfd5133173298d5b194148f5"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "Gold/sttm_silver_to_gold.xlsx",
+    "sha256": "3e42be408f824a86cbc098cae3dc92b1a687b9591cdb6ca99c192a373230e3bb"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "Landing_to_Bronze.ipynb",
+    "sha256": "c033714364d9f0176d2892925cb1053f40c38880b512c4bfe659e4a20bc6e763"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "My_Bronze_to_Silver.ipynb",
+    "sha256": "7bb53fb64b409ca3558f165ab3b677fa06344900c0d366f8875df44d5ad4dfb0"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "My_Landing_to_Bronze.ipynb",
+    "sha256": "0165a76a2b7245c0b61b42ea9039fa8d9d8414bde294dd0751a5ffd8c8927491"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "Prepare calendar table.ipynb",
+    "sha256": "fe32d5e568aa4cf8c7c787e7543b6e689bc0887b2f8677555a66b07f76ccd606"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "README.md",
+    "sha256": "633ed39cb46fceceb521eb7d47f792bbcbb3e262d22de2459843fa9edf25a2ac"
+  },
+  {
+    "repository": "caresync-adb-repo",
+    "path": "Test.ipynb",
+    "sha256": "00053f3167be8b3e3bac150a0621675ecd00ed4882c75ff67ebf607ccc154290"
+  }
+]

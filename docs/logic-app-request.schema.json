@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "subject": {"type": "string"},
+    "email_receipients": {"type": "string"},
+    "body_header": {"type": "string"},
+    "body_footer": {"type": "string"},
+    "status_table": {"type": "array", "items": {"type": "object"}}
+  },
+  "required": ["subject", "email_receipients", "body_header", "body_footer", "status_table"]
+}

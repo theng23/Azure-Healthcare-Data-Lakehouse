@@ -1,0 +1,18 @@
+{
+  "factory_name": "caresync-dev-adf",
+  "factory_location": "eastus",
+  "environment": "DEV",
+  "adls_url": "https://__STORAGE_ACCOUNT__.dfs.core.windows.net/",
+  "key_vault_url": "https://__KEY_VAULT_NAME__.vault.azure.net/",
+  "azure_sql_server": "__SQL_SERVER__.database.windows.net",
+  "azure_sql_database": "__SQL_DATABASE__",
+  "azure_sql_username": "__SQL_USERNAME__",
+  "postgres_server": "__NEON_HOST__",
+  "postgres_database": "__POSTGRES_DATABASE__",
+  "postgres_username": "__POSTGRES_USERNAME__",
+  "databricks_host": "https://__WORKSPACE_HOST__.azuredatabricks.net",
+  "databricks_cluster_id": "__CLUSTER_ID__",
+  "databricks_notebook_root": "/Shared/caresync/databricks",
+  "email_recipient": "__EMAIL_RECIPIENT__",
+  "logic_app_secret_name": "logic-app-callback-url"
+}

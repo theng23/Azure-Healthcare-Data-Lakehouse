@@ -1,0 +1,246 @@
+{
+  "name": "PL_SEND_EMAIL",
+  "properties": {
+    "activities": [
+      {
+        "name": "Read All Tables Status",
+        "type": "Lookup",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "sqlReaderQuery": {
+              "value": "select * from ctrl.audit_log where adf_run_id = '@{pipeline().parameters.adf_run_id}'",
+              "type": "Expression"
+            },
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None"
+          },
+          "dataset": {
+            "referenceName": "AzureSqlTable1",
+            "type": "DatasetReference"
+          },
+          "firstRowOnly": false
+        }
+      },
+      {
+        "name": "Prepare Email Body Header",
+        "type": "SetVariable",
+        "dependsOn": [],
+        "policy": {
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "variableName": "body_header",
+          "value": "CareSync pipeline execution summary"
+        }
+      },
+      {
+        "name": "Prepare Email Body Footer",
+        "description": "For any support, please reach out to abc@gmail.com ",
+        "type": "SetVariable",
+        "dependsOn": [],
+        "policy": {
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "variableName": "body_footer",
+          "value": "Contact the project support owner for assistance."
+        }
+      },
+      {
+        "name": "Prepare Email Subject",
+        "description": "",
+        "type": "SetVariable",
+        "dependsOn": [
+          {
+            "activity": "Check overall failed count",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "variableName": "email_subject",
+          "value": {
+            "value": "@{pipeline().globalParameters.env} | @{if(greater(activity('Check overall failed count').output.firstRow.count,0),'FAIL','SUCCESS')} | CARESYNC MASTER RUN",
+            "type": "Expression"
+          }
+        }
+      },
+      {
+        "name": "Check overall failed count",
+        "type": "Lookup",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "sqlReaderQuery": {
+              "value": "select count(*) as count from ctrl.audit_log \nwhere adf_run_id = '@{pipeline().parameters.adf_run_id}'\n    and status != 'SUCCESS'",
+              "type": "Expression"
+            },
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None"
+          },
+          "dataset": {
+            "referenceName": "AzureSqlTable1",
+            "type": "DatasetReference"
+          },
+          "firstRowOnly": true
+        }
+      },
+      {
+        "name": "Prepare logic app body",
+        "type": "SetVariable",
+        "dependsOn": [
+          {
+            "activity": "Prepare Email Subject",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Prepare Email Body Header",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Prepare Email Body Footer",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          },
+          {
+            "activity": "Read All Tables Status",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "variableName": "logic_apps_body",
+          "value": {
+            "value": "{\n    \"subject\" : \"@{variables('email_subject')}\",\n    \"email_receipients\": \"@{pipeline().globalParameters.email_receipent}\",\n    \"body_header\":\"@{variables('body_header')}\",\n    \"body_footer\":\"@{variables('body_footer')}\",\n    \"status_table\":@{activity('Read All Tables Status').output.value}\n}",
+            "type": "Expression"
+          }
+        }
+      },
+      {
+        "name": "Send Email",
+        "type": "WebActivity",
+        "dependsOn": [
+          {
+            "activity": "Get Logic App URL",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": true,
+          "secureInput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "method": "POST",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "url": {
+            "value": "@activity('Get Logic App URL').output.value",
+            "type": "Expression"
+          },
+          "body": {
+            "value": "@variables('logic_apps_body')",
+            "type": "Expression"
+          }
+        }
+      },
+      {
+        "name": "Get Logic App URL",
+        "type": "WebActivity",
+        "dependsOn": [
+          {
+            "activity": "Prepare logic app body",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.00:10:00",
+          "retry": 2,
+          "retryIntervalInSeconds": 30,
+          "secureInput": true,
+          "secureOutput": true
+        },
+        "userProperties": [],
+        "typeProperties": {
+          "method": "GET",
+          "url": {
+            "value": "@concat(pipeline().globalParameters.key_vault_url, 'secrets/', pipeline().globalParameters.logic_app_secret_name, '?api-version=7.5')",
+            "type": "Expression"
+          },
+          "authentication": {
+            "type": "MSI",
+            "resource": "https://vault.azure.net"
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "adf_run_id": {
+        "type": "string"
+      }
+    },
+    "variables": {
+      "body_header": {
+        "type": "String"
+      },
+      "email_subject": {
+        "type": "String"
+      },
+      "logic_apps_body": {
+        "type": "String"
+      },
+      "body_footer": {
+        "type": "String"
+      }
+    },
+    "annotations": []
+  }
+}
