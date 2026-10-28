@@ -1,4 +1,4 @@
-# End-to-End Azure Healthcare Data Engineering Project
+# Azure Healthcare Data Lakehouse
 
 **Azure Data Factory · Azure Databricks · ADLS Gen2 · Azure SQL · GitHub Actions · Logic Apps · Key Vault**
 
