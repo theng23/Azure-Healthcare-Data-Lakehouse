@@ -64,8 +64,8 @@ Success should be assessed through source reconciliation, output-grain checks, r
 The repository supplies the data-processing foundation. Downstream dashboards, financial models and measured business outcomes are extensions to that foundation. Azure resources, source data, environment metadata and the Logic Apps email connector must be configured before execution.
 
 ## Architecture and technology trade-offs
-
-![End-to-end Azure healthcare data architecture](docs/images/architecture.png)
+### Overall Architecture
+![End-to-end Azure healthcare data architecture](architecture-overview.png)
 
 ### Platform choices
 
